@@ -1,0 +1,78 @@
+@import 'colors';
+@import 'media-queries';
+
+%align-center {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  background: $light;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 1200px) / 2);
+  z-index: 10;
+  position: relative;
+
+  &__logo {
+    color: $dark;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-left: 24px;
+    @extend %align-center;
+  }
+
+  &__bars {
+    opacity: 0;
+
+    @include tablet {
+      color: $dark;
+      opacity: 1;
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      font-size: 2rem;
+    }
+  }
+
+  &__menu {
+    @extend %align-center;
+    list-style: none;
+    text-align: center;
+    margin-right: 24px;
+
+    @include tablet {
+      display: none;
+    }
+
+    &--links {
+      color: $dark;
+      @extend %align-center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 0 1rem;
+
+      &:hover {
+        color: $lime;
+        transition: all 0.3s ease;
+      }
+    }
+
+    #button {
+      padding: 12px 24px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      background: $lime;
+      margin-left: 16px;
+      color: $light;
+
+      &:hover {
+        background: $orangeRed;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
